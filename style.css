@@ -20,6 +20,8 @@ body{
 
 section{
     display: flex;
+    border: 1px solid;
+    padding: 150px 30px 30px 30px;
 }
 
 button{
@@ -33,8 +35,8 @@ button{
 h1{
     font-size: 56px;
     position: fixed;
-    top: 120px;
-    right: 650px;
+    top: 30vh;
+    right: 44vw;
 }
 
 .num-op{
