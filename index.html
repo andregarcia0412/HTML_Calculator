@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <style>
+            *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Helvetica";
+    color: #D4D4D2;
+}
+
+body{
+    background-color: black;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+section{
+    display: flex;
+    padding: 150px 100px 30px 100px;
+}
+
+button{
+    padding: 20px 25px;
+    border-radius: 1000px;
+    border: none;
+    margin: 2px;
+    cursor: pointer;
+}
+
+h1{
+    font-size: 56px;
+    position: fixed;
+    top: 30vh;
+    right: 40vw;
+}
+
+.num-op{
+    display: flex;
+}
+
+.extra-num{
+    display: column;
+}
+
+.numerical button{
+    background-color: #1C1C1C;
+    color: #D4D4D2;
+    transition: background-color 0.2s linear;
+}
+
+.numerical button:hover{
+    background-color: #333;
+}
+
+.operations button{
+    background-color: #FF9500;
+    color: #D4D4D2;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.2s linear;
+}
+
+.operations button:hover{
+    background-color: #CC6600;
+}
+
+.extra button{
+    background-color: #D4D4D2;
+    color: #1C1C1C;
+    padding: 20px 21px;
+    transition: background-color 0.2s linear;
+}
+
+.extra button:hover{
+    background-color: #A9A9A7;
+}
+
+#zero{
+    padding: 20px 102px;
+    padding-left: 15px;
+}
+
+#comma{
+    padding: 20px 26px;
+}
+        </style> 
+    </head>
+    <body>
+        <div class = "container">
+            <h1>0</h1>
+            <section class = "buttons">
+                <div class = "extra-num">
+                <div class = "extra">
+                    <button id = "ac">AC</button>
+                    <button id = "+/-">+/-</button>
+                    <button id = "%">%</button>
+                </div>
+                
+                <div class = "numerical">
+                    <div class = "123">
+                        <button id = "1">1</button>
+                        <button id = "2">2</button>
+                        <button id = "3">3</button>
+                    </div>
+                    
+                    <div class = "456">
+                        <button id = "4">4</button>
+                        <button id = "5">5</button>
+                        <button id = "6">6</button>
+                    </div>
+                    
+                    <div class = "789">
+                        <button id = "7">7</button>
+                        <button id = "8">8</button>
+                        <button id = "9">9</button>
+                    </div>
+                    <div class = "zero-comma">
+                        <button id = "zero">0</button>
+                        <button id = "comma">,</button>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div class = "operations">
+                    <button id = "/">÷</button>
+                    <button id = "X">X</button>
+                    <button id = "-">-</button>
+                    <button id = "+">+</button>
+                    <button id = "=">=</button>
+                </div>
+        </div>
+    </section>
+
+<script>
+    var elemTxtCalc = document.querySelector("h1")
+const elemButtonAC = document.getElementById("ac")
+const elemButtonSignal = document.getElementById("+/-")
+const elemButtonPercent = document.getElementById("%")
+
+const elemButton1 = document.getElementById("1")
+const elemButton2 = document.getElementById("2")
+const elemButton3 = document.getElementById("3")
+const elemButton4 = document.getElementById("4")
+const elemButton5 = document.getElementById("5")
+const elemButton6 = document.getElementById("6")
+const elemButton7 = document.getElementById("7")
+const elemButton8 = document.getElementById("8")
+const elemButton9 = document.getElementById("9")
+const elemButton0 = document.getElementById("zero")
+const elemButtonComma = document.getElementById("comma")
+
+const elemButtonEquals = document.getElementById("=")
+const elemButtonSum = document.getElementById("+")
+const elemButtonMinus = document.getElementById("-")
+const elemButtonTimes = document.getElementById("X")
+const elemButtonDivides = document.getElementById("/")
+
+var num1 = null
+var num2 = null
+var operation = 0
+
+elemButton1.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "1"
+})
+
+elemButton2.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "2"
+})
+
+elemButton3.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "3"
+})
+
+elemButton4.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "4"
+})
+
+elemButton5.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "5"
+})
+
+elemButton6.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "6"
+})
+
+elemButton7.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "7"
+})
+
+elemButton8.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "8"
+})
+
+elemButton9.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "9"
+})
+
+elemButton0.addEventListener("click", function(){
+    if(elemTxtCalc.textContent == 0){
+        elemTxtCalc.textContent = ""
+    }
+    elemTxtCalc.textContent += "0"
+})
+
+elemButtonAC.addEventListener("click", function(){
+    elemTxtCalc.textContent = "0"
+})
+
+elemButtonSum.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent += " + "
+    operation = 1
+})
+
+elemButtonMinus.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent += " - "
+    operation = 2
+})
+
+elemButtonTimes.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent += " X "
+    operation = 3
+})
+
+elemButtonDivides.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent += " ÷ "
+    operation = 4
+})
+
+elemButtonSignal.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent = - num1
+})
+
+elemButtonPercent.addEventListener("click", function(){
+    num1 = Number(elemTxtCalc.textContent)
+    elemTxtCalc.textContent = num1 / 100
+})
+
+elemButtonComma.addEventListener("click", function(){
+    elemTxtCalc.textContent += "."
+})
+
+elemButtonEquals.addEventListener("click", function(){
+    num2 = Number(elemTxtCalc.textContent.split(" ")[2])
+
+    if(operation == 1){
+        elemTxtCalc.textContent = num1 + num2
+    } 
+    else if(operation == 2){
+        elemTxtCalc.textContent = num1 - num2
+    } 
+    else if(operation == 3){
+        elemTxtCalc.textContent = num1 * num2
+    }
+    else if(operation == 4){
+        elemTxtCalc.textContent = num1 / num2
+    }
+})
+</script>
+</body>
+</html>
